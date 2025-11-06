@@ -19,6 +19,8 @@ export default function Home() {
     { name: 'DIET_REQUIREMENTS', displayName: '?? Diet Requirements' },
     { name: 'DAY1_SUMMARY', displayName: '?? Day 1 Summary' },
     { name: 'DAY1_MEAL_PLAN', displayName: '??? Day 1 Meal Plan' },
+    { name: 'DAY2_MEAL_PLAN', displayName: '??? Day 2 Meal Plan' },
+    { name: 'DAY2_MEAL_PLAN_EVENING_WORKOUT', displayName: '??? Day 2 Evening Workout' },
     { name: 'PROTEIN_BREAKDOWN_DAY1', displayName: '?? Protein Breakdown' },
     { name: 'WHEY_PROTOCOL', displayName: '?? Whey Protocol' },
   ]
@@ -43,7 +45,9 @@ export default function Home() {
       
       setMarkdownFiles(loadedFiles)
       if (loadedFiles.length > 0) {
-        setSelectedFile(loadedFiles[0].name)
+        // Set Day 2 Meal Plan as the default selected file
+        const day2MealPlan = loadedFiles.find(f => f.name === 'DAY2_MEAL_PLAN')
+        setSelectedFile(day2MealPlan ? day2MealPlan.name : loadedFiles[0].name)
       }
       setLoading(false)
     }
